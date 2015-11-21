@@ -18,19 +18,24 @@
         <br />
         <table>
             <tr>
-                <td width ="300px">Send a GET request to "/v1/Examples":</td>
+                <td width ="300px">Send a GET request to "api/v1/Examples":</td>
                 <td width="50px"><input type="button" value="Call REST API" id="button1"/></td>
                 <td width="600px">Returned Value: <span style="color:red" id="returnedValue1"></span></td>
             </tr>
             <tr>
-                <td width="300px">Send a GET request to "/v2/Examples":</td>
+                <td width="300px">Send a GET request to "api/v2/Examples":</td>
                 <td width="50px"><input type="button" value="Call REST API" id="button2" /></td>
                 <td width="600px">Returned Value: <span style="color:red" id="returnedValue2"></span></td>
             </tr>
             <tr>
-                <td width="300px">Send a GET request to "/v7/Examples":</td>
+                <td width="300px">Send a GET request to "api/v7/Examples":</td>
                 <td width="50px"><input type="button" value="Call REST API" id="button3" /></td>
                 <td width="600px">Returned Value: <span style="color:red" id="returnedValue3"></span></td>
+            </tr>
+            <tr>
+                <td width="300px">Send a GET request to "api/Examples":</td>
+                <td width="50px"><input type="button" value="Call REST API" id="button4" /></td>
+                <td width="600px">Returned Value: <span style="color:red" id="returnedValue4"></span></td>
             </tr>
         </table>
     </div>
@@ -39,7 +44,7 @@
             $("#button1").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "api/v1/Examples/",
+                    url: "api/v1/ExamplesApi/",
                     success: function (returnedString) {
                         $("#returnedValue1").html(returnedString);
                     },
@@ -52,7 +57,7 @@
             $("#button2").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "api/v2/Examples/",
+                    url: "api/v2/ExamplesApi/",
                     success: function (returnedString) {
                         $("#returnedValue2").html(returnedString);
                     },
@@ -65,9 +70,22 @@
             $("#button3").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "api/v7/Examples/",
+                    url: "api/v7/ExamplesApi/",
                     success: function (returnedString) {
                         $("#returnedValue3").html(returnedString);
+                    },
+                    error: function (err) {
+                        alert("Error " + err.status + ":\r\n" + err.statusText);
+                    },
+                    dataType: "json"
+                });
+            })
+            $("#button4").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "api/ExamplesApi/",
+                    success: function (returnedString) {
+                        $("#returnedValue4").html(returnedString);
                     },
                     error: function (err) {
                         alert("Error " + err.status + ":\r\n" + err.statusText);

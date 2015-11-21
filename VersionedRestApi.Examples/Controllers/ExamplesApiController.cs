@@ -30,7 +30,7 @@ namespace VersionedRestApi.Examples.Controllers
             /v7/Examples/
             /v8/Examples/
          */
-        [ApiRoute("Examples/")]
+        [ApiRoute("ExamplesApi/")]
         [HttpPost]
         public string Post()
         {
@@ -38,7 +38,7 @@ namespace VersionedRestApi.Examples.Controllers
         }
 
         //this method handles GET requests to "/v1/Examples/"
-        [ApiRoute("Examples/", AcceptedVersions = new [] {1} )]
+        [ApiRoute("ExamplesApi/", AcceptedVersions = new [] {1} )]
         [HttpGet]
         public string Get()
         {
@@ -53,7 +53,7 @@ namespace VersionedRestApi.Examples.Controllers
             /v5/Examples/
             /v6/Examples/
         */
-        [ApiRoute("Examples/", AcceptedVersions = new[] {2, 3, 4, 5, 6} )]
+        [ApiRoute("ExamplesApi/", AcceptedVersions = new[] {2, 3, 4, 5, 6} )]
         [HttpGet]
         public string SomeBreakingChangeToTheGetAction()
         {
@@ -63,7 +63,7 @@ namespace VersionedRestApi.Examples.Controllers
         /*
          * This method handles requests to version 7 and up (e.g. /v7/Examples/)  
          */
-        [ApiRoute("Examples/", StartingVersion = 7)]
+        [ApiRoute("ExamplesApi/", StartingVersion = 7)]
         [HttpGet]
         public string YetAnotherBreakingChangeToGet()
         {
