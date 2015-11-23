@@ -74,14 +74,14 @@ namespace VersionedRestApi.Examples
                         //    });
 
                         // Set this flag to omit descriptions for any actions decorated with the Obsolete attribute
-                        //c.IgnoreObsoleteActions();
+                        c.IgnoreObsoleteActions();
 
                         // Each operation be assigned one or more tags which are then used by consumers for various reasons.
                         // For example, the swagger-ui groups operations according to the first tag of each operation.
                         // By default, this will be controller name but you can use the "GroupActionsBy" option to
                         // override with any value.
                         //
-                        //c.GroupActionsBy(apiDesc => apiDesc.HttpMethod.ToString());
+                        c.GroupActionsBy(apiDesc => apiDesc.HttpMethod.ToString());
 
                         // You can also specify a custom sort order for groups (as defined by "GroupActionsBy") to dictate
                         // the order in which operations are listed. For example, if the default grouping is in place

@@ -39,6 +39,7 @@ namespace VersionedRestApi.Examples.Controllers
 
         //this method handles GET requests to "/v1/Examples/"
         [ApiRoute("ExamplesApi/", AcceptedVersions = new [] {1} )]
+        [Obsolete("use OutDocuments instead", true)]
         [HttpGet]
         public string Get()
         {
